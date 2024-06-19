@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="Gimbal">
+    <link name="base"/>
+
+    <joint name="baseTomount" type="fixed">
+        <parent link="base"/>
+        <child link="mount"/>
+        <origin xyz="0 0 0"/>
+    </joint>
+
+    <link name="mount">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://resource/meshes/base.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="yaw" type="revolute">
+        <parent link="mount"/>
+        <child link="yawtoroll"/>
+        <origin rpy="0 0.78539816339 0" xyz="0.06778 0 0.05748"/>
+        <axis xyz="0 0 1"/>
+        <dynamics damping="0.0" friction="0.0"/>
+    </joint>
+
+    <link name="yawtoroll">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://resource/meshes/yawrolllink.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="roll" type="revolute">
+        <parent link="yawtoroll"/>
+        <child link="rolltopitch"/>
+        <origin rpy="0 -0.523599 0" xyz="-0.01866 0 0.04708"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+
+    <link name="rolltopitch">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://resource/meshes/rollpitchlink.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="pitch" type="revolute">
+        <parent link="rolltopitch"/>
+        <child link="cameraframe"/>
+        <origin xyz="0.035 -0.004 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <link name="cameraframe">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://resource/meshes/cameraframewithcameras.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+            <mass value="0.4"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+        </inertial>
+    </link>
+
+    <joint name="Lcamera" type="fixed">
+        <parent link="cameraframe"/>
+        <child link="cameraL"/>
+        <origin rpy="0 0 0.349066" xyz="0.00832 0.03985 0.01096"/>
+    </joint>
+
+    <link name="cameraL">
+    </link>
+
+    <joint name="Rcamera" type="fixed">
+        <parent link="cameraframe"/>
+        <child link="cameraR"/>
+        <origin rpy="0 0 -0.349066" xyz="0.00832 -0.03385 0.01096"/>
+    </joint>
+
+    <link name="cameraR">
+    </link>
+
+</robot>

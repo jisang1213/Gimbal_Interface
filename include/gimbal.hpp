@@ -60,7 +60,6 @@ class Frame{
 
 class Gimbal{
   public:
-
     void setState(double roll, double pitch, double yaw){ //in order of motors
       roll.angle = roll;
       pitch.angle = pitch;
@@ -103,34 +102,34 @@ class Gimbal{
     }
 
     Gimbal(std::string portname){
-      //hard code gimbal configuration (URDF Format)
+      //hard code gimbal URDF
       base.xyz << 0,0,0;
       base.rpy << 0,0,0;
 
       yaw.isRev = true;
-      yaw.xyz << 0.1, 0, 0,1;
-      yaw.rpy << 0, pi/2, 0;
+      yaw.xyz << 0.06778, 0, 0.05748;
+      yaw.rpy << 0, 0.78539816339, 0;
       yaw.axis << 0,0,1;
       yaw.parent = &base;
 
       roll.isRev = true;
-      roll.xyz << -0.1, 0, 0.1;
-      roll.rpy << 0, -pi/2, 0;
+      roll.xyz << -0.01866, 0, 0.04708;
+      roll.rpy << 0, -0.523599, 0;
       roll.axis << 1,0,0;
       roll.parent = &yaw;
 
       pitch.isRev = true;
-      pitch.xyz << 0.1, 0, 0;
+      pitch.xyz << 0.035, -0.004, 0;
       pitch.rpy << 0,0,0;
       pitch.axis << 0,1,0;
       pitch.parent = &roll;
 
-      Lcam.xyz << ;
-      Lcam.rpy << ;
+      Lcam.xyz << 0.00832, 0.03985, 0.01096;
+      Lcam.rpy << 0, 0, 0.349066;
       Lcam.parent = &pitch;
 
-      Rcam.xyz << ;
-      Rcam.rpy << ; 
+      Rcam.xyz << 0.00832, -0.03385, 0.01096;
+      Rcam.rpy << 0, 0, -0.349066; 
       Rcam.parent = &pitch;
 
       //setup gimbal serial port
@@ -147,7 +146,6 @@ class Gimbal{
     Frame base, yaw, roll, pitch, Lcam, Rcam;
     Eigen::MatrixXd H = Eigen::MatrixXd::Identity(4,4);
     int serial_fd;
-    double pi = 3.1415926;
 };
 
 
