@@ -4,15 +4,17 @@
 #include <Eigen/Core>
 #include <Eigen/Geometry>
 
-// #include "raibot.hpp"
-// #include "raisim/World.hpp"
-
+#include <iostream>
 #include <cstring>
+#include <cmath>
+#include <string>
 #include <unistd.h>
 #include <fcntl.h>
 #include <termios.h>
-#include <cmath>
-#include <string>
+
+// uncomment the following for use with raisin:
+// #include "raibot.hpp"
+// #include "raisim/World.hpp"
 
 //cooridinate frame class
 class Frame{

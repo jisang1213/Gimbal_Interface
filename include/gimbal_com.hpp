@@ -4,10 +4,10 @@
 
 #pragma once
 
+#include <unistd.h>
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/vector3.hpp"
 #include "gimbal.hpp"
-#include <unistd.h>
 
 
 class gimbal_com : public rclcpp::Node {
