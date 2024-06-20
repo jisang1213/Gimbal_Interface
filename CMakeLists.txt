@@ -21,6 +21,12 @@ find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(Eigen3 REQUIRED)  # Add this line to find Eigen
 
+find_package(rosidl_default_generators REQUIRED)
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/DoubleArray12.msg"
+)
+
 include_directories(include)  # Include your package's header files directory
 include_directories(${EIGEN3_INCLUDE_DIR})  # Include Eigen's include directory
 

@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/vector3.hpp"
+#include "gimbal_interface/msg/double_array12.hpp" 
 #include "gimbal.hpp"
 
 
@@ -49,6 +50,9 @@ private:
         output_msg->z = receivedData[2];
 
         gimbal->setState(receivedData[0], receivedData[1], receivedData[2]);    //update the state in gimbal object
+
+        // send H matrix in array:
+        // auto message = gimbal_interface::msg::DoubleArray12();
 
         // Publish the processed message to the output topic
         pub_->publish(std::move(output_msg));

@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/jakob/Desktop/Gimbal_Interface/build",
-  "command": "/usr/bin/c++ -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -I/home/jakob/Desktop/Gimbal_Interface/include -I/usr/local/include/eigen3 -isystem /opt/ros/foxy/include -g -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/example.dir/src/example.cpp.o -c /home/jakob/Desktop/Gimbal_Interface/src/example.cpp",
-  "file": "/home/jakob/Desktop/Gimbal_Interface/src/example.cpp"
-}
-]
