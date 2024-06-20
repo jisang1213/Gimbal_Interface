@@ -161,7 +161,7 @@ int Gimbal::configureGimbalPort(std::string portname) {
 
     // Open serial port
     int fd = open(portname.c_str(), O_RDWR | O_NOCTTY | O_SYNC);
-    if (serial_fd < 0) {
+    if (fd < 0) {
       throw std::runtime_error("Failed to open gimbal serial port.");
       //RSFATAL("Error opening gimbal serial port" );   ///INCLUDE HEADER FOR RSFATAL
     }
@@ -169,7 +169,7 @@ int Gimbal::configureGimbalPort(std::string portname) {
     // Configure serial port settings
     struct termios tty;
     memset(&tty, 0, sizeof(tty));
-    if (tcgetattr(serial_fd, &tty) != 0) {
+    if (tcgetattr(fd, &tty) != 0) {
       throw std::runtime_error("Error getting gimbal serial port attributes.");
       //RSFATAL("Error getting gimbal serial port attributes");
     }
@@ -186,7 +186,7 @@ int Gimbal::configureGimbalPort(std::string portname) {
     tty.c_cflag |= (CLOCAL | CREAD);                // Ignore modem controls, enable reading
     tty.c_cflag &= ~(PARENB | PARODD);              // No parity
     tty.c_cflag &= ~CSTOPB;                         // 1 stop bit
-    if (tcsetattr(serial_fd, TCSANOW, &tty) != 0) {
+    if (tcsetattr(fd, TCSANOW, &tty) != 0) {
       throw std::runtime_error("Error setting gimbal serial port attributes.");
       //RSFATAL("Error setting gimbal serial port attributes");
     }
