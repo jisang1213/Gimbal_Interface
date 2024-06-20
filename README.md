@@ -1,3 +1,4 @@
+![](images/gimbal_raisim.png)
 ## Usage
 
 The Gimbal class sets up the serial port and provides the methods to get the transformation matrix from the camera frame to the gimbal base frame.
@@ -34,3 +35,6 @@ void setWorld(raisim::World * world);
 void setRobot(raisim::ArticulatedSystem * robot);
 ```
 **UPDATE: The updated approach is to get the robot state directly through a topic and to send the H-matrix as an array of 12 doubles through another topic
+
+The origin of the base is the midpoint of the line connecting the two mounting holes.
+![Base Origin](images/base_origin.png)
