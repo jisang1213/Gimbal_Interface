@@ -112,7 +112,7 @@ class Gimbal{
       base.rpy << 0,0,0;
 
       yaw.isRev = true;
-      yaw.xyz << 0.06778, 0, 0.05748;
+      yaw.xyz << 0.12597, 0, 0.06489;
       yaw.rpy << 0, 0.78539816339, 0;
       yaw.axis << 0,0,1;
       yaw.parent = &base;

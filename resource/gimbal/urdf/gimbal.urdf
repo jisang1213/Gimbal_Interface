@@ -13,7 +13,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://resource/meshes/base.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://resource/meshes/newbase.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </visual>
     </link>
