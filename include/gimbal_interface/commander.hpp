@@ -8,6 +8,7 @@
 #include <Eigen/Geometry>
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/vector3.hpp"
+#include "gimbal_interface/msg/robotstate.hpp" 
 
 class gimbal_commander : public rclcpp::Node {
 public:
@@ -16,47 +17,32 @@ public:
         timer_ = this->create_wall_timer(std::chrono::milliseconds(10), std::bind(&gimbal_commander::publishMessage, this));
     }
 
-    // void setWorld(raisim::World * world)
-    // {
-    //     virtualWorld_ = world;
-    //     raibot = reinterpret_cast<raisim::ArticulatedSystem *>(virtualWorld_->getObject("robot"));  // robot state container
-    //     active_control = true;  //active control uses the robot's state to help stabilize the gimbal
-    // }
-
-
 private:
     void publishMessage() {
         
         auto message = geometry_msgs::msg::Vector3();
 
-        // if(active_control){
-        //     // compute robot angular velocity in body frame
-        //     raibot->getState(genCo_, genVel_);
-        //     quat = genCo_.segment<4>(3);
-        //     raisin::robot::sensor::quatToRotMat(quat, rot);
-        //     angVelW = genVel_.segment<3>(3);    //world frame
-        //     angVelB = rot.transpose() * angVelW; //body frame
+        // compute robot angular velocity in body frame
+        raibot->getState(genCo_, genVel_);
+        quat = genCo_.segment<4>(3);
+        raisin::robot::sensor::quatToRotMat(quat, rot);
+        angVelW = genVel_.segment<3>(3);    //world frame
+        angVelB = rot.transpose() * angVelW; //body frame
 
-        //     raisin::robot::sensor::rotMatToZYXEuler(rot, eulerAng);
-        //     roll = eulerAng[0];
-        //     pitch = eulerAng[1];
+        raisin::robot::sensor::rotMatToZYXEuler(rot, eulerAng);
+        roll = eulerAng[0];
+        pitch = eulerAng[1];
 
-        //     message.x = -roll;
-        //     message.y = -pitch-0.2;
-        //     message.z = -0.2*angVelB[2];//0.9*sin(count/300.0);
-        //     count++;
-        // }
-        // else{
-        //     message.x = 0.0;
-        //     message.y = -0.2;
-        //     message.z = 0.9*sin(count/300.0);   //left and right motion for testing
-        //     count++;
-        // }
-
-        message.x = 0.0;
-        message.y = -0.2;
-        message.z = 0.9*sin(count/300.0);   //left and right motion for testing
+        message.x = -roll;
+        message.y = -pitch-0.2;
+        message.z = -0.2*angVelB[2];//0.9*sin(count/300.0);
         count++;
+
+        // for testing
+        // message.x = 0.0;
+        // message.y = -0.2;
+        // message.z = 0.9*sin(count/300.0);   //left and right motion for testing
+        // count++;
 
         // Publish the message
         publisher_->publish(message);
@@ -73,6 +59,4 @@ private:
     double roll, pitch;
     int count = 0;
     bool active_control = false;
-    // raisim::World * virtualWorld_;
-    // raisim::ArticulatedSystem * raibot;
 };

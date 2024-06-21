@@ -25,6 +25,7 @@ find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/DoubleArray12.msg"
+  "msg/robotstate.msg"
 )
 
 include_directories(include)  # Include your package's header files directory
