@@ -69,17 +69,17 @@ class Gimbal{
       yaw.angle = y;
     }
 
-    //getDHmatrix() method returns the DH matrix from camera to base frame
-    Eigen::MatrixXd getHmatrix_L(){
-      H.block(0,0,3,3) = getRot(&Lcam);
-      H.block(0,3,3,1) = getPos(&Lcam);
-      return H;
+    Eigen::Matrix3d getRot_L(){
+      return getRot(&Lcam);
     }
-
-    Eigen::MatrixXd getHmatrix_R(){
-      H.block(0,0,3,3) = getRot(&Rcam);
-      H.block(0,3,3,1) = getPos(&Rcam);
-      return H;
+    Eigen::Vector3d getPos_L(){
+      return getPos(&Lcam);
+    }
+    Eigen::Matrix3d getRot_R(){
+      return getRot(&Rcam);
+    }
+    Eigen::Vector3d getPos_R(){
+      return getPos(&Rcam);
     }
 
     int getPortID(){
