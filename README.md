@@ -1,7 +1,7 @@
 ![](images/gimbal_raisim.png)
 # Overview
 
-This is a standalone ros2 node that is designed to run independently from raisin.
+This is a standalone ros2 node that is designed to run alongside Raisin.
 It receives the robot state through the custom "robotstate" message and it sends the H matrix back to raisin through the "DoubleArray12" message.
 
 ## commander node
