@@ -4,12 +4,9 @@
 This is a standalone ros2 node that is designed to run alongside Raisin.
 It receives the robot state through the custom "robotstate" message and it sends the H matrix back to raisin through the "DoubleArray12" message.
 
-## commander node
-The commander node receives commands from raisin and publishes them to the "/gimbal_command" topic. There are two ways it generates commands.
-
 ## gimbal_com node
 The gimbal_com node is responsible for the actual serial communication.
-It is subscribed to the "/gimbal_command" topic from which it receives roll/pitch/yaw commands (in the base frame) and publishes the information necessary for coordinate transformation to the "/gimbal_state" topic.
+It is subscribed to the "railab_raibo/gimbal_command" topic from which it receives roll/pitch/yaw commands (in the base frame) and publishes the information necessary for coordinate transformation to the "/gimbal_state" topic.
 The port name should be passed to its constructor.
 
 ```cpp

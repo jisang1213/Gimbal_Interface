@@ -21,7 +21,7 @@ public:
     gimbal_com(std::string portname) : Node("gimbal_com_node"), gimbal(portname) {
         // Subscribe to the input topic
         sub = create_subscription<geometry_msgs::msg::Vector3>(
-                "/gimbal_command", 10, std::bind(&gimbal_com::inputCallback, this, std::placeholders::_1));
+                "railab_raibo/gimbal_command", 10, std::bind(&gimbal_com::inputCallback, this, std::placeholders::_1));
 
         // Advertise the output topic
         pubL = create_publisher<geometry_msgs::msg::Transform>("railab_raibo/L_cam", 10);
@@ -95,5 +95,5 @@ private:
     Eigen::Matrix3d rotL, rotR;
     Eigen::Vector3d posL, posR;
     rclcpp::Subscription<geometry_msgs::msg::Vector3>::SharedPtr sub;
-    rclcpp::Publisher<gimbal_interface::msg::DoubleArray12>::SharedPtr pubL, pubR;
+    rclcpp::Publisher<geometry_msgs::msg::Transform>::SharedPtr pubL, pubR;
 };
