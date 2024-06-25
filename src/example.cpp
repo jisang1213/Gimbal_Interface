@@ -1,10 +1,5 @@
-#include <Eigen/Core>
-#include <Eigen/Geometry>
 #include <string>
-#include <iostream>
-
 #include "rclcpp/rclcpp.hpp"
-#include "gimbal_interface/gimbal.hpp"
 #include "gimbal_interface/gimbal_com.hpp"
 
 int main(int argc, char * argv[])

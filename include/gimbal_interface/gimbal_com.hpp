@@ -1,7 +1,6 @@
 //
 // Created by You, Jisang on 04/03/2024.
 //
-
 #pragma once
 
 #include <Eigen/Core>
