@@ -1,8 +1,6 @@
 ![](images/gimbal_raisim.png)
 # Overview
-
 This is a standalone ros2 node that is designed to run alongside Raisin.
-It receives the robot state through the custom "robotstate" message and it sends the H matrix back to raisin through the "DoubleArray12" message.
 
 ## gimbal_com node
 The gimbal_com node is responsible for the actual serial communication.
