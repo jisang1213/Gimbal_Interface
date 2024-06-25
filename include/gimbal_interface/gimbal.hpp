@@ -87,10 +87,10 @@ class Gimbal{
     }
 
     Eigen::Vector3d getPos(Frame* frame){
-      Eigen::Vector3d pos = frame->getPos();
-      frame = frame->parent;
+      Eigen::Vector3d pos = Eigen::Vector3d::Zero();
       while(frame != NULL){
         pos = frame->getRot() * pos + frame->getPos();
+        frame = frame->parent;
       }
       return pos;
     }
@@ -107,8 +107,8 @@ class Gimbal{
     int configureGimbalPort(std::string portname);
 
     Gimbal(std::string portname){
-      //hard code gimbal URDF
-      base.xyz << 0,0,0;
+      //hard code gimbal URDF. Base is specified in the README.
+      base.xyz << 0.199, 0, 0.0935; //offset from robot imu
       base.rpy << 0,0,0;
 
       yaw.isRev = true;
@@ -129,6 +129,7 @@ class Gimbal{
       pitch.axis << 0,1,0;
       pitch.parent = &roll;
 
+      //CHANGE THESE TO CORRECT LENS LOCATION:
       Lcam.xyz << 0.00832, 0.03985, 0.01096;
       Lcam.rpy << 0, 0, 0.349066;
       Lcam.parent = &pitch;

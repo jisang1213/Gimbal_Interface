@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <robot name="Gimbal">
-    <link name="base"/>
+    <!-- IMU of the robot -->
+    <link name="base"/> 
 
     <joint name="baseTomount" type="fixed">
         <parent link="base"/>
         <child link="mount"/>
-        <origin xyz="0 0 0"/>
+        <origin xyz="0.199 0.0 0.0935"/>
     </joint>
 
     <link name="mount">
