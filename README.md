@@ -20,3 +20,9 @@ Message type is: https://docs.ros2.org/foxy/api/geometry_msgs/msg/Transform.html
 
 The origin of the base is the midpoint of the line connecting the two mounting holes.
 ![Base Origin](images/base_origin.png)
+
+## debugging
+To check if the encoder is reading properly, type the following into the terminal
+```shell
+ros2 topic pub --rate 10 /railab_raibo/gimbal_command geometry_msgs/msg/Vector3 "{x:0, y:0, z:0}"
+```

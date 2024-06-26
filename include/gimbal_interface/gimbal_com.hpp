@@ -5,6 +5,7 @@
 
 #include <Eigen/Core>
 #include <Eigen/Geometry>
+#include <iostream>
 
 #include <unistd.h>
 #include <string>
@@ -21,6 +22,7 @@ public:
         // Subscribe to the input topic
         sub = create_subscription<geometry_msgs::msg::Vector3>(
                 "railab_raibo/gimbal_command", 10, std::bind(&gimbal_com::inputCallback, this, std::placeholders::_1));
+        jointstate = create_publisher<geometry_msgs::msg::Vector3>("joint_state", 10);
 
         // Advertise the output topic
         pubL = create_publisher<geometry_msgs::msg::Transform>("railab_raibo/L_cam", 10);
@@ -47,6 +49,12 @@ private:
             std::cerr << "Error reading from gimbal" << std::endl;
             //RSFATAL("Error reading from gimbal");
         }
+
+        auto state = geometry_msgs::msg::Vector3();
+        state.x = receivedData[0];
+        state.y = receivedData[1];
+        state.z = receivedData[2];
+        jointstate->publish(state);
 
         //update the state in gimbal
         gimbal.setState(receivedData[0], receivedData[1], receivedData[2]);    //update the state in gimbal object
@@ -94,5 +102,6 @@ private:
     Eigen::Matrix3d rotL, rotR;
     Eigen::Vector3d posL, posR;
     rclcpp::Subscription<geometry_msgs::msg::Vector3>::SharedPtr sub;
+    rclcpp::Publisher<geometry_msgs::msg::Vector3>::SharedPtr jointstate;
     rclcpp::Publisher<geometry_msgs::msg::Transform>::SharedPtr pubL, pubR;
 };

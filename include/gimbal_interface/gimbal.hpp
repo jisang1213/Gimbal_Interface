@@ -150,7 +150,6 @@ class Gimbal{
   
   private:
     Frame base, yaw, roll, pitch, Lcam, Rcam;
-    Eigen::MatrixXd H = Eigen::MatrixXd::Identity(4,4);
     int serial_fd;
 };
 
