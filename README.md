@@ -21,13 +21,17 @@ Message type is: https://docs.ros2.org/foxy/api/geometry_msgs/msg/Transform.html
 The origin of the base is the midpoint of the line connecting the two mounting holes.
 ![Base Origin](images/base_origin.png)
 
-## debugging
+## Debugging
 To check if the encoder is reading properly, type the following into the terminal
 ```shell
 ros2 topic pub --rate 10 /railab_raibo/gimbal_command geometry_msgs/msg/Vector3 "{x:0, y:0, z:0}"
 ```
+Then check the response
+```shell
+ros2 topic echo /joint_state
+```
 
-## recording rgb video from Realsense
+## Recording rgb video from Realsense
 Connect the usb-c cable and run the video recording node
 ```shell
 ros2 run gimbal_interface realsense_video_recorder
