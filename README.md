@@ -26,3 +26,9 @@ To check if the encoder is reading properly, type the following into the termina
 ```shell
 ros2 topic pub --rate 10 /railab_raibo/gimbal_command geometry_msgs/msg/Vector3 "{x:0, y:0, z:0}"
 ```
+
+## recording rgb video from Realsense
+Connect the usb-c cable and run the video recording node
+```shell
+ros2 run gimbal_interface realsense_video_recorder
+```

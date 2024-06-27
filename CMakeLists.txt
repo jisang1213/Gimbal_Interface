@@ -18,25 +18,33 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(geometry_msgs REQUIRED)
-find_package(Eigen3 REQUIRED)  # Add this line to find Eigen
+find_package(Eigen3 REQUIRED)
+find_package(cv_bridge REQUIRED)
+find_package(realsense2 REQUIRED)
 
-find_package(rosidl_default_generators REQUIRED)
+include_directories(include ${EIGEN3_INCLUDE_DIR} ${OpenCV_INCLUDE_DIRS})
 
-include_directories(include)  # Include your package's header files directory
-include_directories(${EIGEN3_INCLUDE_DIR})  # Include Eigen's include directory
+add_executable(com src/gimbal_com.cpp)
+add_executable(realsense_video_recorder src/recorder.cpp)
 
-add_executable(example src/example.cpp)
-ament_target_dependencies(example rclcpp geometry_msgs)
+ament_target_dependencies(com rclcpp geometry_msgs)
+ament_target_dependencies(realsense_video_recorder
+    rclcpp
+    cv_bridge
+    realsense2
+)
+
+target_link_libraries(realsense_video_recorder ${realsense2_LIBRARY})
 
 # Specify where to find header files
-target_include_directories(example PUBLIC
+target_include_directories(com PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>  # Specify your include directory here
   $<INSTALL_INTERFACE:include>
 )
 
 install(TARGETS
-  example
+  com
+  realsense_video_recorder
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
