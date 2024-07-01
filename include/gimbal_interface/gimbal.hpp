@@ -106,7 +106,7 @@ class Gimbal{
     
     int configureGimbalPort(std::string portname);
 
-    Gimbal(std::string portname){
+    Gimbal(std::string portname = "/dev/ttyACM1"){
       //hard code gimbal URDF. Base is specified in the README.
       base.xyz << 0.199, 0, 0.0935; //offset from robot imu
       base.rpy << 0,0,0;

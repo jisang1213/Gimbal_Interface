@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/foxy/lib/python3.8/site-packages",
+        "",
+        "/home/jakob/insung_ws/raisim_build/lib"
+    ],
+    "python.analysis.extraPaths": [
+        "/opt/ros/foxy/lib/python3.8/site-packages",
+        "",
+        "/home/jakob/insung_ws/raisim_build/lib"
+    ]
+}

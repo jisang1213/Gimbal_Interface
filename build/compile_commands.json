@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/jakob/Desktop/ros2_ws/src/gimbal_interface/build",
+  "command": "/usr/bin/c++ -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -I/home/jakob/Desktop/ros2_ws/src/gimbal_interface/include -I/usr/local/include/eigen3 -I/usr/include/opencv4 -isystem /opt/ros/foxy/include -g -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/com.dir/src/gimbal_com.cpp.o -c /home/jakob/Desktop/ros2_ws/src/gimbal_interface/src/gimbal_com.cpp",
+  "file": "/home/jakob/Desktop/ros2_ws/src/gimbal_interface/src/gimbal_com.cpp"
+},
+{
+  "directory": "/home/jakob/Desktop/ros2_ws/src/gimbal_interface/build",
+  "command": "/usr/bin/c++ -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -I/home/jakob/Desktop/ros2_ws/src/gimbal_interface/include -I/usr/local/include/eigen3 -isystem /usr/include/opencv4 -isystem /opt/ros/foxy/include -g -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/realsense_video_recorder.dir/src/recorder.cpp.o -c /home/jakob/Desktop/ros2_ws/src/gimbal_interface/src/recorder.cpp",
+  "file": "/home/jakob/Desktop/ros2_ws/src/gimbal_interface/src/recorder.cpp"
+}
+]

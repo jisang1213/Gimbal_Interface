@@ -41,12 +41,14 @@ private:
         //write command to MCU
         if (write(gimbal.getPortID(), &dataToSend, sizeof(dataToSend)) < 0) {
             std::cerr << "Error writing to gimbal" << std::endl;
+            gimbal.Gimbal();
             //RSFATAL("Error writing to gimbal");
         }
         //get MCU response
         double receivedData[3];
         if (read(gimbal.getPortID(), &receivedData, sizeof(receivedData)) < 0) {
             std::cerr << "Error reading from gimbal" << std::endl;
+            gimbal.Gimbal();
             //RSFATAL("Error reading from gimbal");
         }
 

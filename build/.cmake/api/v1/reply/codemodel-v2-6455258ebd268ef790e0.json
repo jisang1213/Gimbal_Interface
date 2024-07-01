@@ -1,0 +1,88 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-a1b29cbb7a6cd6d81bdd.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "gimbal_interface",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "com::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-com-Debug-eef1e1a607221fb06367.json",
+					"name" : "com",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gimbal_interface_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gimbal_interface_uninstall-Debug-d9112e2a35c82eb022d4.json",
+					"name" : "gimbal_interface_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "realsense_video_recorder::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-realsense_video_recorder-Debug-1c95b4716bca734288ea.json",
+					"name" : "realsense_video_recorder",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Debug-a9b56a9445f5fef8ce56.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/jakob/Desktop/ros2_ws/src/gimbal_interface/build",
+		"source" : "/home/jakob/Desktop/ros2_ws/src/gimbal_interface"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

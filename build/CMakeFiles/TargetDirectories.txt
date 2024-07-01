@@ -1,0 +1,11 @@
+/home/jakob/Desktop/ros2_ws/src/gimbal_interface/build/CMakeFiles/uninstall.dir
+/home/jakob/Desktop/ros2_ws/src/gimbal_interface/build/CMakeFiles/gimbal_interface_uninstall.dir
+/home/jakob/Desktop/ros2_ws/src/gimbal_interface/build/CMakeFiles/com.dir
+/home/jakob/Desktop/ros2_ws/src/gimbal_interface/build/CMakeFiles/realsense_video_recorder.dir
+/home/jakob/Desktop/ros2_ws/src/gimbal_interface/build/CMakeFiles/test.dir
+/home/jakob/Desktop/ros2_ws/src/gimbal_interface/build/CMakeFiles/edit_cache.dir
+/home/jakob/Desktop/ros2_ws/src/gimbal_interface/build/CMakeFiles/rebuild_cache.dir
+/home/jakob/Desktop/ros2_ws/src/gimbal_interface/build/CMakeFiles/list_install_components.dir
+/home/jakob/Desktop/ros2_ws/src/gimbal_interface/build/CMakeFiles/install.dir
+/home/jakob/Desktop/ros2_ws/src/gimbal_interface/build/CMakeFiles/install/local.dir
+/home/jakob/Desktop/ros2_ws/src/gimbal_interface/build/CMakeFiles/install/strip.dir
